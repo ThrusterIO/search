@@ -1,0 +1,12 @@
+services:
+    Thruster\Search\ClientFactory:
+        public: false
+
+    Thruster\Search\Repositories:
+        arguments: [!tagged repository.search]
+
+    Thruster\Search\Console\Command\:
+        resource: '../src/Console/Command'
+        autowire: true
+        tags:
+            - { name: "console.command" }
